@@ -1,13 +1,38 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
-
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Было");
+        int[][] nums =
+                {
+                        {8, 2, 3},
+                        {6, 9, 4},
+                        {7, 1, 9}
+                };
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                System.out.printf("%d ", nums[i][j]);
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < nums.length; i++) {
+            for (int l = 0; l < nums.length; l++) {
+                int pos = l;
+                int min = nums[i][l];
+                for (int j = l + 1; j < nums.length; j++) {
+                    if (nums[i][j] < min) {
+                        pos = j;
+                        min = nums[i][j];
+                    }
+                }
+                nums[i][pos] = nums[i][l];
+                nums[i][l] = min;
+            }
+        }
+        System.out.println("Стало");
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                System.out.printf("%d ", nums[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
